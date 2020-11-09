@@ -30,7 +30,6 @@ const Home = () => {
     })
 
     const settings = {
-        dots: true,
         infinite: true,
         slidesToShow: 3,
         slidesToScroll: 1,
@@ -40,25 +39,28 @@ const Home = () => {
     }
 
     return (
-        <div >
-            <div ref={topText} style={{ width:'100px', height:'20px',margin:'0 auto 10px', fontSize:'19px', fontWeight: 'bold' }}>
+        <div style={{overflow:'hidden'}} >
+            <div ref={topText} style={{ width:'100px', height:'20px',margin:'0 auto 10px', fontSize:'19px', fontWeight: 'bold', color:'#00f291' }}>
                 Shoe Store
             </div>
-            <div ref={selection} style={{ width:'350px', height:'60px', margin:'0 auto', fontSize:'25px', fontWeight:'bold'}}>
+            <div ref={selection} style={{ width:'350px', height:'60px', margin:'0 auto', fontSize:'25px', fontWeight:'bold', color:'#f5007f'}}>
                 Choose what to wear today
             </div>
-            <div style={{height:'100%', width: '100%'}} ref={shoes}>
+            <div style={{height:'100%', width: '100%' }} ref={shoes}>
                 <Slider {...settings} >
                         {data.map((item) => {
                             return(
                                 <div key={item.id}>
-                                    <img  src={item.image}              
-                                      style={{
-                                          height:'400px',
-                                        display: "block",
-                                        margin: "0 auto",
-                                        cursor: "pointer",
-                                        }}/>
+                                    <img  
+                                     src={item.image}    
+                                     alt={item.slug}          
+                                     style={{
+                                     height:'400px',
+                                     backgroundColor:'#2c2230',
+                                     display: "block",
+                                     margin: "0 auto",
+                                     cursor: "pointer",
+                                    }}/>
                                 </div>
                             )})}
                 </Slider>
